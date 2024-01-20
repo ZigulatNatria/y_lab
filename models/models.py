@@ -19,7 +19,7 @@ submenu = Table(
     Column('id', Integer, primary_key=True),
     Column('title', String, nullable=False),
     Column('description', String, nullable=False),
-    Column('submenu', Integer, ForeignKey("menu.id"))
+    Column('submenu', Integer, ForeignKey("menu.id", ondelete='CASCADE'), unique=True)
 )
 
 
@@ -30,5 +30,5 @@ dish = Table(
     Column('title', String, nullable=False),
     Column('description', String, nullable=False),
     Column('price', Float, nullable=False),
-    Column('submenu', Integer, ForeignKey("submenu.id"))
+    Column('submenu', Integer, ForeignKey("submenu.id", ondelete='CASCADE'), unique=True)
 )
